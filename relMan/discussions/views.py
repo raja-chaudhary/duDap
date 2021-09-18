@@ -60,3 +60,7 @@ def deleteDiscussion(request, pk):
         'discussion': discussion
     }
     return render(request, 'discussions/delete.html', context)
+
+
+def test_func():
+    return  # adding this function to check github push working or not
