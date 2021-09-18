@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="hamburgers.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="components.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+        .svg-icon {
+            width: 1em;
+            height: 1em;
+        }
+
+        .svg-icon path,
+        .svg-icon polygon,
+        .svg-icon rect {
+            fill: #4691f6;
+        }
+
+        .svg-icon circle {
+            stroke: #4691f6;
+            stroke-width: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+
+    <nav class="mt-0 z-50 w-full bg-white">
+        <div class="flex bg-darkslategray items-center justify-between lg:justify-center px-4 h-24">
+            <div class="w-48 xl:w-128 h-24 z-30">
+                <a href="/"><img src="images/logo.png" alt="" class="h-24 mx-auto hidden xl:flex" /></a>
+                <a href="/"><img src="images/logo.png" alt="" class="h-24 flex xl:hidden mx-auto flex-shrink-0" /></a>
+            </div>
+            <!-- Hamburger Menu for Small Screens -->
+            <div id="hamburger" type="button"
+                class="block text-black focus:outline-none focus:text-black hover:text-black mr-4 lg:hidden z-30">
+                <div class="hamburger hamburger--spring">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Full Menu for Full Screen -->
+            <div
+                class="px-2 pt-2 pb-4 text-sm bg-white h-16 z-30 lg:flex items-center hidden lg:w-full xl:w-3/5 justify-between font-avenir">
+                <div class="relative cl-effect-4 flex">
+                    <a href="/" class="text-black rounded px-4 flex-shrink-0 mt-1">ARGUMENTS</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/programs/" class="text-black rounded px-4 flex-shrink-0 mt-1">LIES</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/onlineprograms/" class="text-black rounded px-4 flex-shrink-0 mt-1">PROMISES</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/team/" class="text-black rounded px-4 flex-shrink-0 mt-1">IMPORTANT DATES</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/testimonials/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">STATS</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/referrals/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">SEX
+                        COUNTER</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/contact/"
+                        class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">LOGIN/REGISTER</a>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Block under the NavBar -->
+        <div id="navigation" class="px-2 pt-2 pb-4 text-lg hidden bg-white font-avenir w-full z-50 absolute">
+            <a href="/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 text-center uppercase">ARGUMENTS</a>
+            <a href="/about/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">LIES</a>
+            <a href="/programs/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">PROMISES</a>
+            <a href="/onlineprograms/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">IMPORTANT
+                DATES</a>
+            <a href="/team/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">STATS</a>
+            <a href="/testimonials/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">SEX
+                COUNTER</a>
+            <a href="/referrals/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">LOGIN/REGISTER</a>
+        </div>
+    </nav>
+
+    <!-- Body -->
+    <div class="block-container bg-none bg-top bg-cover -mt-0 -mr-0 -mb-0 -ml-0 pt-0 pr-0 pb-0 pl-0">
+        <section
+            class="bg-gradient-to-b from-gray-100 to-white w-full bg-top bg-cover mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+            <div
+                class="text-left md:text-center md:w-3/4 lg:w-2/4 w-full bg-top bg-cover mt-0 mr-auto mb-0 ml-auto pt-20 pr-4 pb-20 pl-4">
+                <p class="font-semibold text-base mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0 text-blue-700"
+                    contenteditable="false" disabled="">Take control of your life now</p>
+                <p class="font-extrabold text-3xl mt-0 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                    disabled="">Sign up for a free account to organize your fights</p>
+                <div class="space-x-0 md:space-x-2 bg-top bg-cover -mt- -mr- mb-0 -ml- pt-0 pr-0 pb-0 pl-0">
+                    <div
+                        class="bg-blue-700 hover:bg-blue-900 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-0 mb-2 ml-0 pt-2 pr-4 pb-2 pl-4">
+                        <p class="inline-flex mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                            disabled="">Get Started</p>
+                        <p class="inline-flex h-4 mt-0 mr-0 mb-0 ml-1 pt-0 pr-0 pb-0 pl-0 w-4" contenteditable="false"
+                            disabled=""> <svg classname="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg> </p>
+                    </div>
+                    <div
+                        class="bg-gray-100 hover:bg-gray-200 sm:w-auto sm:mb-0 text-gray-800 inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-0 mb-2 ml-0 pt-2 pr-4 pb-2 pl-4">
+                        <p class="inline-flex mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                            disabled="">Book a demo</p>
+                        <p class="inline-flex h-4 mt-0 mr-0 mb-0 ml-1 pt-0 pr-0 pb-0 pl-0 w-4" contenteditable="false"
+                            disabled=""> <svg classname="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M6.672 1.911a1 1 0 10-1.932.518l.259.966a1 1 0 001.932-.518l-.26-.966zM2.429 4.74a1 1 0 10-.517 1.932l.966.259a1 1 0 00.517-1.932l-.966-.26zm8.814-.569a1 1 0 00-1.415-1.414l-.707.707a1 1 0 101.415 1.415l.707-.708zm-7.071 7.072l.707-.707A1 1 0 003.465 9.12l-.708.707a1 1 0 001.415 1.415zm3.2-5.171a1 1 0 00-1.3 1.3l4 10a1 1 0 001.823.075l1.38-2.759 3.018 3.02a1 1 0 001.414-1.415l-3.019-3.02 2.76-1.379a1 1 0 00-.076-1.822l-10-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg> </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="block-container bg-top bg-cover -mt-0 -mr-0 -mb-0 -ml-0 pt-0 pr-0 pb-0 pl-0">
+        <div class="bg-gray-100 bg-top bg-cover mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+            <div
+                class="relative sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-top bg-cover mt-0 mr-auto mb-0 ml-auto pt-16 pr-4 pb-16 pl-4 ">
+                <h2
+                    class="font-extrabold text-2xl md:text-3xl text-blue-700 mt-0 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
+                    Keep Track of Important Stuff in Your Life!</h2>
+                <div
+                    class="relative gap-5 sm:grid-cols-2 lg:grid-cols-3 grid bg-top bg-cover mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+                    <div
+                        class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between items-center overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+                        <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
+                            <div
+                                class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
+                                <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
+                                    <svg class="w-8 
+                          h-8 text-blue-700" stroke="currentColor" viewBox="0 0 52 52">
+                                        <polygon strokewidth="3" strokelinecap="round" strokelinejoin="round"
+                                            fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                                    </svg>
+                                </p>
+                            </div>
+                            <p class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                                disabled="">Arguments/Discussions</p>
+                            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900"
+                                contenteditable="false" disabled="">Tired of forgetting older arguments? Arguments that
+                                are thrown at you after 2 years? Keep track of all what was said and argued at one
+                                place!!</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between items-center overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+                        <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
+                            <div
+                                class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
+                                <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
+                                    <svg class="svg-icon" viewBox="0 0 20 20">
+                                        <path fill="none"
+                                            d="M16.853,8.355V5.888c0-3.015-2.467-5.482-5.482-5.482H8.629c-3.015,0-5.482,2.467-5.482,5.482v2.467l-2.741,7.127c0,1.371,4.295,4.112,9.594,4.112s9.594-2.741,9.594-4.112L16.853,8.355z M5.888,17.367c-0.284,0-0.514-0.23-0.514-0.514c0-0.284,0.23-0.514,0.514-0.514c0.284,0,0.514,0.23,0.514,0.514C6.402,17.137,6.173,17.367,5.888,17.367z M5.203,10c0-0.377,0.19-0.928,0.423-1.225c0,0,0.651-0.831,1.976-0.831c0.672,0,1.141,0.309,1.141,0.309C9.057,8.46,9.315,8.938,9.315,9.315v1.028c0,0.188-0.308,0.343-0.685,0.343H5.888C5.511,10.685,5.203,10.377,5.203,10z M7.944,16.853H7.259v-1.371l0.685-0.685V16.853z M9.657,16.853H8.629v-2.741h1.028V16.853zM8.972,13.426v-1.028c0-0.568,0.46-1.028,1.028-1.028c0.568,0,1.028,0.46,1.028,1.028v1.028H8.972z M11.371,16.853h-1.028v-2.741h1.028V16.853z M12.741,16.853h-0.685v-2.056l0.685,0.685V16.853z M14.112,17.367c-0.284,0-0.514-0.23-0.514-0.514c0-0.284,0.23-0.514,0.514-0.514c0.284,0,0.514,0.23,0.514,0.514C14.626,17.137,14.396,17.367,14.112,17.367z M14.112,10.685h-2.741c-0.377,0-0.685-0.154-0.685-0.343V9.315c0-0.377,0.258-0.855,0.572-1.062c0,0,0.469-0.309,1.141-0.309c1.325,0,1.976,0.831,1.976,0.831c0.232,0.297,0.423,0.848,0.423,1.225S14.489,10.685,14.112,10.685z M18.347,15.801c-0.041,0.016-0.083,0.023-0.124,0.023c-0.137,0-0.267-0.083-0.319-0.218l-2.492-6.401c-0.659-1.647-1.474-2.289-2.905-2.289c-0.95,0-1.746,0.589-1.754,0.595c-0.422,0.317-1.084,0.316-1.507,0C9.239,7.505,8.435,6.916,7.492,6.916c-1.431,0-2.246,0.642-2.906,2.292l-2.491,6.398c-0.069,0.176-0.268,0.264-0.443,0.195c-0.176-0.068-0.264-0.267-0.195-0.444l2.492-6.401c0.765-1.911,1.824-2.726,3.543-2.726c1.176,0,2.125,0.702,2.165,0.731c0.179,0.135,0.506,0.135,0.685,0c0.04-0.029,0.99-0.731,2.165-0.731c1.719,0,2.779,0.814,3.542,2.723l2.493,6.404C18.611,15.534,18.524,15.733,18.347,15.801z">
+                                        </path>
+                                    </svg>
+                                </p>
+                            </div>
+                            <p class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                                disabled="">Lies Spoken</p>
+                            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900"
+                                contenteditable="false" disabled="">Do you think your SO is lying to you about
+                                something?Easy to track lies for you to refer later to verify the truth..</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between items-center overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+                        <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
+                            <div
+                                class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
+                                <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
+                                    <svg class="svg-icon" viewBox="0 0 20 20">
+                                        <path fill="none"
+                                            d="M18.737,9.691h-5.462c-0.279,0-0.527,0.174-0.619,0.437l-1.444,4.104L8.984,3.195c-0.059-0.29-0.307-0.506-0.603-0.523C8.09,2.657,7.814,2.838,7.721,3.12L5.568,9.668H1.244c-0.36,0-0.655,0.291-0.655,0.655c0,0.36,0.294,0.655,0.655,0.655h4.8c0.281,0,0.532-0.182,0.621-0.45l1.526-4.645l2.207,10.938c0.059,0.289,0.304,0.502,0.595,0.524c0.016,0,0.031,0,0.046,0c0.276,0,0.524-0.174,0.619-0.437L13.738,11h4.999c0.363,0,0.655-0.294,0.655-0.655C19.392,9.982,19.1,9.691,18.737,9.691z">
+                                        </path>
+                                    </svg>
+                                </p>
+                            </div>
+                            <p class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                                disabled="">Promises Made</p>
+                            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900"
+                                contenteditable="false" disabled="">Are you one of those lazy ass who keeps forgetting
+                                the promises? Has it happened with you that you lost an argument because your SO told
+                                you about a promise you made, a promise that you dont remember?</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between items-center overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+                        <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
+                            <div
+                                class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
+                                <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
+                                    <svg class="svg-icon" viewBox="0 0 20 20">
+                                        <path fill="none"
+                                            d="M10,0.375c-5.229,0-9.469,4.239-9.469,9.469S4.771,19.312,10,19.312s9.469-4.239,9.469-9.469S15.229,0.375,10,0.375 M11.079,18.377c2.005-2.275,3.225-5.262,3.225-8.533c0-3.272-1.22-6.258-3.225-8.533c4.243,0.531,7.529,4.145,7.529,8.533C18.608,14.232,15.322,17.846,11.079,18.377">
+                                        </path>
+                                    </svg>
+                                </p>
+                            </div>
+                            <p class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                                disabled="">Track Important Dates</p>
+                            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900"
+                                contenteditable="false" disabled="">Did your wife just threw the remote on you because
+                                you forgot the birthday of her mother? Were you supposed to make the night special
+                                because your SO is expecting you to get naughty on your "first time" anniversary?</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between items-center overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+                        <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
+                            <div
+                                class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
+                                <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
+                                    <svg class="svg-icon" viewBox="0 0 20 20">
+                                        <path
+                                            d="M17.431,2.156h-3.715c-0.228,0-0.413,0.186-0.413,0.413v6.973h-2.89V6.687c0-0.229-0.186-0.413-0.413-0.413H6.285c-0.228,0-0.413,0.184-0.413,0.413v6.388H2.569c-0.227,0-0.413,0.187-0.413,0.413v3.942c0,0.228,0.186,0.413,0.413,0.413h14.862c0.228,0,0.413-0.186,0.413-0.413V2.569C17.844,2.342,17.658,2.156,17.431,2.156 M5.872,17.019h-2.89v-3.117h2.89V17.019zM9.587,17.019h-2.89V7.1h2.89V17.019z M13.303,17.019h-2.89v-6.651h2.89V17.019z M17.019,17.019h-2.891V2.982h2.891V17.019z">
+                                        </path>
+                                    </svg>
+                                </p>
+                            </div>
+                            <p class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                                disabled="">Track All Stats</p>
+                            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900"
+                                contenteditable="false" disabled="">Keep a track of the arguments you were involved in
+                                this week/month/year. How many lies did your SO speak? Are you sure you are not over
+                                committing by making promises after promises??</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between items-center overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+                        <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
+                            <div
+                                class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
+                                <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
+                                    <svg class="svg-icon" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.719,17.073l-6.562-6.51c-0.27-0.268-0.504-0.567-0.696-0.888C1.385,7.89,1.67,5.613,3.155,4.14c0.864-0.856,2.012-1.329,3.233-1.329c1.924,0,3.115,1.12,3.612,1.752c0.499-0.634,1.689-1.752,3.612-1.752c1.221,0,2.369,0.472,3.233,1.329c1.484,1.473,1.771,3.75,0.693,5.537c-0.19,0.32-0.425,0.618-0.695,0.887l-6.562,6.51C10.125,17.229,9.875,17.229,9.719,17.073 M6.388,3.61C5.379,3.61,4.431,4,3.717,4.707C2.495,5.92,2.259,7.794,3.145,9.265c0.158,0.265,0.351,0.51,0.574,0.731L10,16.228l6.281-6.232c0.224-0.221,0.416-0.466,0.573-0.729c0.887-1.472,0.651-3.346-0.571-4.56C15.57,4,14.621,3.61,13.612,3.61c-1.43,0-2.639,0.786-3.268,1.863c-0.154,0.264-0.536,0.264-0.69,0C9.029,4.397,7.82,3.61,6.388,3.61">
+                                        </path>
+                                    </svg>
+                                </p>
+                            </div>
+                            <p class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                                disabled="">Sex Counter</p>
+                            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900"
+                                contenteditable="false" disabled="">You should aspire to fuck more than you argue. Keep
+                                a track on your personal sex-meter and compare it with the fights you had in the same
+                                period! Lust begets Lust!!!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).on("click", "#hamburger", function () {
+                $(".hamburger").toggleClass("is-active");
+                $("#navigation").toggle();
+            });
+        </script>
+</body>
+
+</html>

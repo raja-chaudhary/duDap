@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/hamburgers.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/svg.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <title>Document</title>
+    {% include 'base/css.html' %}
+</head>
+
+<body>
+    <!-- Navigation -->
+
+    <nav class="mt-0 z-50 w-full bg-white">
+        <div class="flex bg-darkslategray items-center justify-between lg:justify-center px-4 h-24">
+            <div class="w-48 xl:w-128 h-24 z-30">
+                <a href="/"><img src="images/logo.png" alt="" class="h-24 mx-auto hidden xl:flex" /></a>
+                <a href="/"><img src="images/logo.png" alt="" class="h-24 flex xl:hidden mx-auto flex-shrink-0" /></a>
+            </div>
+            <!-- Hamburger Menu for Small Screens -->
+            <div id="hamburger" type="button"
+                class="block text-black focus:outline-none focus:text-black hover:text-black mr-4 lg:hidden z-30">
+                <div class="hamburger hamburger--spring">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Full Menu for Full Screen -->
+            <div
+                class="px-2 pt-2 pb-4 text-sm bg-white h-16 z-30 lg:flex items-center hidden lg:w-full xl:w-3/5 justify-between font-avenir">
+                <div class="relative cl-effect-4 flex">
+                    <a href="/" class="text-black rounded px-4 flex-shrink-0 mt-1">ARGUMENTS</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/programs/" class="text-black rounded px-4 flex-shrink-0 mt-1">LIES</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/onlineprograms/" class="text-black rounded px-4 flex-shrink-0 mt-1">PROMISES</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/team/" class="text-black rounded px-4 flex-shrink-0 mt-1">IMPORTANT DATES</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/testimonials/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">STATS</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/referrals/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">SEX
+                        COUNTER</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/accounts/login/"
+                        class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">LOGIN/REGISTER</a>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Block under the NavBar -->
+        <div id="navigation" class="px-2 pt-2 pb-4 text-lg hidden bg-white font-avenir w-full z-50 absolute">
+            <a href="/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 text-center uppercase">ARGUMENTS</a>
+            <a href="/about/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">LIES</a>
+            <a href="/programs/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">PROMISES</a>
+            <a href="/onlineprograms/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">IMPORTANT
+                DATES</a>
+            <a href="/team/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">STATS</a>
+            <a href="/testimonials/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">SEX
+                COUNTER</a>
+            <a href="/referrals/"
+                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">LOGIN/REGISTER</a>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock content %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).on("click", "#hamburger", function () {
+            $(".hamburger").toggleClass("is-active");
+            $("#navigation").toggle();
+        });
+    </script>
+</body>
+
+</html>
