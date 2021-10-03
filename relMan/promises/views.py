@@ -6,22 +6,26 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+def index(request):
+    return render(request, 'index.html', {})
+
+
 @login_required
 def promise_view(request):
 
     promises = Promise.objects.filter(promise_user=request.user)
 
-    form_promise = PromiseForm()
+    form = PromiseForm()
 
     if request.method == 'POST':
-        form_promise = PromiseForm(request.POST or None)
-        if form_promise.is_valid():
-            instance = form_promise.save(commit=False)
+        form = PromiseForm(request.POST or None)
+        if form.is_valid():
+            instance = form.save(commit=False)
             instance.promise_user = request.user
-            form_promise.save()
+            form.save()
         return redirect('/promises')
 
-    context = {'promises': promises, 'form': form_promise}
+    context = {'promises': promises, 'form': form}
 
     return render(request, 'promises/promises.html', context)
 

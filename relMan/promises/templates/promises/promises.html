@@ -13,11 +13,12 @@
         {% csrf_token %}
         <div class="mb-4">{{ form.title }}</div>
         <div class="mb-6">{{ form.content }}</div>
-        <input type="date" name="date" value="" 
-class="form-control dateinput form-control" 
-placeholder="Select a date" required="" id="id_date">
+        <label for="datepicker" class="font-bold mb-1 text-gray-700 block">Promise Deliver By (YYYY-MM-DD):</label>
+        <div class="mb-6">{{ form.deliver_by }}</div>
+        <!-- <input type="date" name="date" value="" 
+        class="form-control dateinput form-control" 
+        placeholder="Select a date" required="" id="id_date"> -->
         <input type="submit" name="Create Promise" class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
-        <p>{{ form.errors }}</p>
     </form>
 </div>
 

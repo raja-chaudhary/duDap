@@ -17,13 +17,13 @@ def discussion_view(request):
 
     form = DiscussionForm()
 
-    if request.method == 'POST':
+    if request.method == 'POST' and 'Create Discussion' in request.POST:
         form = DiscussionForm(request.POST or None)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user
             form.save()
-        return redirect('/')
+        return redirect('/discussions')
 
     context = {'discussions': discussions, 'form': form}
 

@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -7,7 +8,7 @@ from django.contrib.auth.models import User
 class Promise(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    deliver_by = models.DateField(null=True, default=None)
+    deliver_by = models.DateField(blank=True, default=datetime.date.today)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     promise_user = models.ForeignKey(
