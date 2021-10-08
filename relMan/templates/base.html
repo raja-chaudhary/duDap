@@ -21,8 +21,8 @@
     <nav class="mt-0 z-50 w-full bg-white">
         <div class="flex bg-darkslategray items-center justify-between lg:justify-center px-4 h-24">
             <div class="w-48 xl:w-128 h-24 z-30">
-                <a href="/"><img src="images/logo.png" alt="" class="h-24 mx-auto hidden xl:flex" /></a>
-                <a href="/"><img src="images/logo.png" alt="" class="h-24 flex xl:hidden mx-auto flex-shrink-0" /></a>
+                <a href="/"><img src="{% static 'images/dudap.png' %}" alt="" class="h-24 mx-auto hidden xl:flex" /></a>
+                <a href="/"><img src="{% static 'images/dudap.png' %}" alt="" class="h-24 flex xl:hidden mx-auto flex-shrink-0" /></a>
             </div>
             <!-- Hamburger Menu for Small Screens -->
             <div id="hamburger" type="button"
@@ -37,48 +37,60 @@
             <div
                 class="px-2 pt-2 pb-4 text-sm bg-white h-16 z-30 lg:flex items-center hidden lg:w-full xl:w-3/5 justify-between font-avenir">
                 <div class="relative cl-effect-4 flex">
-                    <a href="/" class="text-black rounded px-4 flex-shrink-0 mt-1">ARGUMENTS</a>
+                    <a href="/discussions" class="text-black rounded px-4 flex-shrink-0 mt-1">ARGUMENTS</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
-                    <a href="/programs/" class="text-black rounded px-4 flex-shrink-0 mt-1">LIES</a>
+                    <a href="/" class="text-black rounded px-4 flex-shrink-0 mt-1">LIES</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
-                    <a href="/onlineprograms/" class="text-black rounded px-4 flex-shrink-0 mt-1">PROMISES</a>
+                    <a href="/promises" class="text-black rounded px-4 flex-shrink-0 mt-1">PROMISES</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
-                    <a href="/team/" class="text-black rounded px-4 flex-shrink-0 mt-1">IMPORTANT DATES</a>
+                    <a href="/dates" class="text-black rounded px-4 flex-shrink-0 mt-1">IMPORTANT DATES</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
-                    <a href="/testimonials/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">STATS</a>
+                    <a href="/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">STATS</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
-                    <a href="/referrals/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">SEX
+                    <a href="/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">SEX
                         COUNTER</a>
                 </div>
+                {% if user.is_authenticated %}
+                <div class="relative cl-effect-4 flex">
+                    <a href="/accounts/logout/"
+                        class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">LOGOUT</a>
+                </div>
+                {% else %}
                 <div class="relative cl-effect-4 flex">
                     <a href="/accounts/login/"
                         class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">LOGIN/REGISTER</a>
                 </div>
+                {% endif %}
             </div>
         </div>
         <!-- Menu Block under the NavBar -->
         <div id="navigation" class="px-2 pt-2 pb-4 text-lg hidden bg-white font-avenir w-full z-50 absolute">
-            <a href="/"
+            <a href="/discussions"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 text-center uppercase">ARGUMENTS</a>
-            <a href="/about/"
+            <a href="/"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">LIES</a>
-            <a href="/programs/"
+            <a href="/promises"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">PROMISES</a>
-            <a href="/onlineprograms/"
+            <a href="/dates"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">IMPORTANT
                 DATES</a>
-            <a href="/team/"
+            <a href="/"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">STATS</a>
-            <a href="/testimonials/"
+            <a href="/"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">SEX
                 COUNTER</a>
-            <a href="/referrals/"
+            {% if user.is_authenticated %}
+            <a href="/accounts/logout/"
+            class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">LOGOUT</a>
+            {% else %}
+            <a href="/accounts/login/"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">LOGIN/REGISTER</a>
+                {% endif %}
         </div>
     </nav>
 

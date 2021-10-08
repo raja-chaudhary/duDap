@@ -23,7 +23,8 @@ urlpatterns = [
     path('dudap/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('discussions.urls')),
-    path('', include('promises.urls'))
+    path('', include('promises.urls')),
+    path('', include('dates.urls')),
 ]
 
 if settings.DEBUG:

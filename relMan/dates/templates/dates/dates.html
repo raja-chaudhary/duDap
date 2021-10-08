@@ -8,12 +8,18 @@
         <img class="h-64 w-64" src="{% static 'images/dudap.png' %}" alt="">
     </div>
     <h1 class="font-extrabold text-2xl md:text-3xl text-white mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
-        All Arguments and Discussions</h1>
-    <form method="POST" action="{% url 'discussions' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+        Keep Track of All Your Important Dates!!</h1>
+    <form method="POST" action="{% url 'dates' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
         {% csrf_token %}
         <div class="mb-4">{{ form.title }}</div>
-        <div class="mb-6">{{ form.content }}</div>
-        <input type="submit" name="Create Discussion" class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
+        <label for="datepicker" class="font-bold mb-1 text-gray-700 block">Select Date (YYYY-MM-DD):</label>
+        <div class="mb-6">{{ form.date }}</div>
+        <label for="reminder_duration" class="font-bold mb-1 text-gray-700 block">Remind You (via email):</label>
+        <div class="mb-6">{{ form.reminder }}</div>
+        <!-- <input type="date" name="date" value="" 
+        class="form-control dateinput form-control" 
+        placeholder="Select a date" required="" id="id_date"> -->
+        <input type="submit" name="Create Date" class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
     </form>
 </div>
 
@@ -29,12 +35,12 @@
             class="relative sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-top bg-cover mt-0 mr-auto mb-0 ml-auto pt-16 pr-4 pb-16 pl-4 ">
             <h2
                 class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-0 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
-                Your Mess so Far!!</h2>
+                All Important Dates!!!</h2>
                 <div
                 class="relative gap-5 sm:grid-cols-2 lg:grid-cols-3 grid bg-top bg-cover mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">                
 
 {% if user.is_authenticated %}
-{% for discussion in discussions %}
+{% for date in dates %}
 
 <div
     class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between  overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
@@ -42,31 +48,30 @@
         <div
             class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
             <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
-                <svg class="w-8 
-      h-8 text-blue-700" stroke="currentColor" viewBox="0 0 52 52">
-                    <polygon strokewidth="3" strokelinecap="round" strokelinejoin="round"
-                        fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                <svg class="svg-icon" viewBox="0 0 20 20">
+                    <path fill="none"
+                        d="M10,0.375c-5.229,0-9.469,4.239-9.469,9.469S4.771,19.312,10,19.312s9.469-4.239,9.469-9.469S15.229,0.375,10,0.375 M11.079,18.377c2.005-2.275,3.225-5.262,3.225-8.533c0-3.272-1.22-6.258-3.225-8.533c4.243,0.531,7.529,4.145,7.529,8.533C18.608,14.232,15.322,17.846,11.079,18.377">
+                    </path>
                 </svg>
             </p>
         </div>
-        <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">{{ discussion.title|title }}</h2>
-        <span class="text-xs italic text-gray-600">Added On: {{ discussion.created }}</span>
-        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900" contenteditable="false"
-            disabled="">{{ discussion.content }}</p>
+        <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">{{ date.title|title }}</h2>
+        <span class="text-xs italic text-gray-600">Added On: {{ date.created }}</span>
+            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900" contenteditable="false">Date: {{ date.date }}</p>
 
             <div class="flex flex-row justify-center my-4">
             <div
             class="bg-blue-700 hover:bg-blue-900 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-2 mb-2 ml-2 pt-2 pr-4 pb-2 pl-4">
-            <a href="{% url 'update_discussion' discussion.id %}" class="inline-flex mt-0 mr-2 mb-0 ml-2 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+            <a href="{% url 'update_date' date.id %}" class="inline-flex mt-0 mr-2 mb-0 ml-2 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
                 disabled="">Update</a>
             </div>
             <div
                 class="bg-gray-600 hover:bg-red-600 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-0 mb-2 ml-0 pt-2 pr-4 pb-2 pl-4">
-                <a href="{% url 'delete_discussion' discussion.id %}" class="inline-flex mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                <a href="{% url 'delete_date' date.id %}" class="inline-flex mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
                     disabled="">Delete</a>
             </div>
         </div>
-            <i><span class="text-xs">Last Updated On: {{ discussion.updated }}</span></i>
+            <i><span class="text-xs">Last Updated On: {{ date.updated }}</span></i>
     </div>
 </div>
 {% endfor %}

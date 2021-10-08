@@ -23,7 +23,7 @@
 </div>
 
 {% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}</h1>
+<h1 class="flex justify-center">Welcome {{ user.username }}</h1>
 {% else %}
 <h2>Please login</h2>
 {% endif %}
@@ -56,9 +56,9 @@
         </div>
         <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">{{ promise.title|title }}</h2>
         <span class="text-xs italic text-gray-600">Added On: {{ promise.created }}</span>
-        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900" contenteditable="false"
+        <p class="text-sm leading-5 mt-1 mr-0 mb-1 ml-0 pt-1 pr-1 pb-1 pl-1 text-gray-900 border-2 bg-gray-100 rounded-lg" contenteditable="false"
             disabled="">{{ promise.content }}</p>
-            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900" contenteditable="false">Deadline: {{ promise.deliver_by }}</p>
+            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900 font-bold" contenteditable="false">Promise Deadline: {{ promise.deliver_by }}</p>
 
             <div class="flex flex-row justify-center my-4">
             <div
