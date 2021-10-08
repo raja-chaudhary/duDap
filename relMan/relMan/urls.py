@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('discussions.urls')),
     path('', include('promises.urls')),
     path('', include('dates.urls')),
+    path('', include('lies.urls')),
 ]
 
 if settings.DEBUG:

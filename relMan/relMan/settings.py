@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'dates',
     'discussions',
+    'lies',
     'promises',
     'allauth',
     'allauth.account',
