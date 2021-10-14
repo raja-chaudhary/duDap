@@ -4,9 +4,9 @@
 
 {% block content %}
 <div class="flex flex-col justify-center items-center mx-auto bg-purple-500">
-    <div class="bg-purple-400 my-6">
+    <!-- <div class="bg-purple-400 my-6">
         <img class="h-64 w-64" src="{% static 'images/dudap.png' %}" alt="">
-    </div>
+    </div> -->
     <h1 class="font-extrabold text-2xl md:text-3xl text-white mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
         You Think Tis a Lie??</h1>
     <form method="POST" action="{% url 'lies' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
@@ -49,7 +49,6 @@
             </p>
         </div>
         <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">{{ lie.title|title }}</h2>
-        <span class="text-xs italic text-gray-600">Added On: {{ lie.created }}</span>
             <div class="flex flex-row justify-center my-4">
             <div
             class="bg-blue-700 hover:bg-blue-900 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-2 mb-2 ml-2 pt-2 pr-4 pb-2 pl-4">
