@@ -1,0 +1,58 @@
+<!-- Tutorial here: https://www.youtube.com/watch?v=bI5jpueiCWw -->
+<!-- HTML and CSS from here: https://jsfiddle.net/greenfoxx/cjb8kqgo/ -->
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios-client@0.0.9/lib/index.min.js"></script>
+
+<style>
+    body {
+        background: #20262E;
+        padding: 20px;
+        font-family: Helvetica;
+      }
+      
+      h1 {
+        margin-bottom: 10px;
+      }
+      
+      .title {
+        font-weight: bold;
+      }
+      
+      #app {
+        background: #fff;
+        border-radius: 4px;
+        padding: 20px;
+        transition: all 0.2s;
+      }
+</style>
+
+<div id="app">
+    <h1 class="title">Hello [[ message ]] - This is Your Sex Counter</h1>
+    <h1>Count - [[ count ]]</h1>
+    <form method="POST" action="{% url 'sex-counter' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+        {% csrf_token %}
+        
+        <button @click="increment">I Just had Sex!</button>
+    </form>
+    <button @click="decrement">Oops, Wrong Entry!!</button>
+  </div>
+  
+<script>
+    var app = new Vue({
+        delimiters: ["[[" , "]]"],
+        el: '#app',
+        data: {
+            count: 0,
+            message: '{{ current_user }}'
+        },
+        methods: {
+            increment () {
+                this.count += 1;
+            },
+            decrement () {
+                this.count -= 1;
+            }
+        },
+    });
+</script>
