@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'discussions',
     'lies',
     'promises',
+    'sex',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
