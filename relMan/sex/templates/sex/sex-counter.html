@@ -1,6 +1,10 @@
 <!-- Tutorial here: https://www.youtube.com/watch?v=bI5jpueiCWw -->
 <!-- HTML and CSS from here: https://jsfiddle.net/greenfoxx/cjb8kqgo/ -->
+{% extends 'base.html' %}
 
+{% load static %}
+
+{% block content %}
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios-client@0.0.9/lib/index.min.js"></script>
 
@@ -28,31 +32,28 @@
 </style>
 
 <div id="app">
-    <h1 class="title">Hello [[ message ]] - This is Your Sex Counter</h1>
-    <h1>Count - [[ count ]]</h1>
-    <form method="POST" action="{% url 'sex-counter' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+    <h1 class="title">Hello {{ current_user }} - This is Your Sex Counter</h1>
+    <h1>Since Inception You Have Had Sex - <span class="title text-2xl">{{ sex_count }} times</span></h1>
+    <h1>Your last <span class="title text-2xl">Fuck</span> was on: {{ last_sex.created }}</h1>
+    <!-- <form method="POST" id="form" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
         {% csrf_token %}
         
-        <button @click="increment">I Just had Sex!</button>
+        <button @click="increment" v-model="add-sex">I Just had Sex!</button>
     </form>
-    <button @click="decrement">Oops, Wrong Entry!!</button>
+    <button @click="decrement" v-model="remove-sex">Oops, Wrong Entry!!</button> -->
+    <div class="flex flex-row justify-center">
+    <a href="{% url 'add_sex' %}" class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer w-64">I Just had Sex!</a>
+    <a href="{% url 'delete_sex' %}" class="shadow bg-red-700 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer w-64">Oops, Wrong Entry!!</a>
+  </div>
   </div>
   
 <script>
-    var app = new Vue({
-        delimiters: ["[[" , "]]"],
-        el: '#app',
-        data: {
-            count: 0,
-            message: '{{ current_user }}'
-        },
-        methods: {
-            increment () {
-                this.count += 1;
-            },
-            decrement () {
-                this.count -= 1;
-            }
-        },
-    });
+function increment () {
+    axios
+    .post('127.0.0.1:8000/add_sex')
+    .then(response => (this.info = response))
+    }
 </script>
+
+
+{% endblock content %}

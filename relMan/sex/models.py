@@ -13,4 +13,4 @@ class Sex(models.Model):
         User, on_delete=models.CASCADE, related_name='sex_user', null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        return 'add sex'
