@@ -34,7 +34,7 @@
 <div id="app">
     <h1 class="title">Hello {{ current_user }} - This is Your Sex Counter</h1>
     <h1>Since Inception You Have Had Sex - <span class="title text-2xl">{{ sex_count }} times</span></h1>
-    <h1>Your last <span class="title text-2xl">Fuck</span> was on: {{ last_sex.created }}</h1>
+    <h1>Your last <span class="title text-2xl">Fuck</span> was on: {{ last_sex.created|date:"l, dS M Y" }}</h1>
     <!-- <form method="POST" id="form" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
         {% csrf_token %}
         

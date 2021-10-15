@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('dates.urls')),
     path('', include('lies.urls')),
     path('', include('sex.urls')),
+    path('', include('stats.urls')),
 ]
 
 if settings.DEBUG:

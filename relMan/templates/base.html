@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/components.css' %}" />
     <link rel="stylesheet" href="{% static 'css/svg.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    
 
     <title>Document</title>
     {% include 'base/css.html' %}
@@ -49,10 +50,10 @@
                     <a href="/dates" class="text-black rounded px-4 flex-shrink-0 mt-1">IMPORTANT DATES</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
-                    <a href="/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">STATS</a>
+                    <a href="/stats" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">STATS</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
-                    <a href="/" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">SEX
+                    <a href="/sex-counter" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">SEX
                         COUNTER</a>
                 </div>
                 {% if user.is_authenticated %}
@@ -79,9 +80,9 @@
             <a href="/dates"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">IMPORTANT
                 DATES</a>
-            <a href="/"
+            <a href="/stats"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">STATS</a>
-            <a href="/"
+            <a href="/sex-counter"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">SEX
                 COUNTER</a>
             {% if user.is_authenticated %}
@@ -100,6 +101,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
         crossorigin="anonymous"></script>
+        {% block charts %} {% endblock charts %}
     <script type="text/javascript">
         $(document).on("click", "#hamburger", function () {
             $(".hamburger").toggleClass("is-active");
