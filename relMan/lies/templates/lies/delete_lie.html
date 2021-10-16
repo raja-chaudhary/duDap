@@ -1,0 +1,8 @@
+<p>Are you sure you want to delete "{{ lie.title }}"?</p>
+
+<a href="{% url 'lies' %}">Cancel</a>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <input type="submit" name="Confirm">
+</form>

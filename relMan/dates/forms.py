@@ -11,7 +11,7 @@ class DateForm(forms.ModelForm):
 
     class Meta:
         model = Date
-        fields = '__all__'
+        fields = ['title', 'date', 'reminder']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

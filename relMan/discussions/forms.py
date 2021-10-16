@@ -10,7 +10,7 @@ class DiscussionForm(forms.ModelForm):
 
     class Meta:
         model = Discussion
-        fields = '__all__'
+        fields = ['title', 'content']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

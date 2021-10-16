@@ -11,7 +11,7 @@ class PromiseForm(forms.ModelForm):
 
     class Meta:
         model = Promise
-        fields = '__all__'
+        fields = ['title', 'content', 'deliver_by']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

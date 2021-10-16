@@ -9,7 +9,7 @@ class LieForm(forms.ModelForm):
 
     class Meta:
         model = Lie
-        fields = '__all__'
+        fields = ['title']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
