@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
 <script>
     $(document).ready(function(){
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
+        var ctx = document.getElementById('myChart1').getContext('2d');
+        var myChart1 = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 labels: ['Total Sex', 'Total Arguments'],
@@ -34,6 +34,7 @@
                 }]
             },
             options: {
+                responsive: true,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -45,6 +46,113 @@
                   }
             }
         });
+<!-- Chart 2 -->
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart2 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['All Sex', 'Sex YTD', 'Sex Last Month', 'Sex Last Week'],
+                datasets: [{
+                    label: 'Sex Bifurcation',
+                    data: [{{ charts.0.all_sex }}, {{ charts.1.sex_this_year }}, {{ charts.1.sex_past_month }}, {{ charts.1.sex_past_week }}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        title: {
+                            display: true,
+                            text: 'Value'
+                          },
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 5
+                          }
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: 'Your Sex History...',
+                    font: {
+                        size: 40,
+                        style: 'italic'
+                      },
+                  }
+            }
+        });
+
+        <!-- Chart 3 -->
+
+        var ctx = document.getElementById('myChart3').getContext('2d');
+        var myChart3 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['All Arguments', 'Arguments YTD', 'Arguments Last Month', 'Arguments Last Week'],
+                datasets: [{
+                    label: 'Arguments Bifurcation',
+                    data: [{{ charts.0.all_arguments }}, {{ charts.2.arguments_this_year }}, {{ charts.2.arguments_past_month }}, {{ charts.2.arguments_past_week }}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        title: {
+                            display: true,
+                            text: 'Value'
+                          },
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 5
+                          }
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: 'Your Arguments History...',
+                    font: {
+                        size: 40,
+                        style: 'italic'
+                      },
+                  }
+            }
+        });
+
     });
 </script>
 {% endblock charts %}
@@ -59,7 +167,9 @@
 
 <h1>You had sex <span class="text-2xl title">{{ charts.1.sex_this_year }} times</span> and you argued <span class="text-2xl title">{{ charts.2.arguments_this_year }} times</span> this year</h1>
 
-<canvas id="myChart" width="400" height="100"></canvas>
+<canvas id="myChart1" width="400" height="100"></canvas>
+<canvas class="container flex mx-auto my-24" id="myChart2" width="400" height="100"></canvas>
+<canvas class="container flex mx-auto my-8" id="myChart3" width="400" height="100"></canvas>
 
 
 {% endblock content %}
