@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="flex flex-col justify-center items-center mx-auto bg-purple-500">
+    <div class="bg-purple-400 my-6">
+        <img class="h-64 w-64" src="{% static 'images/dudap.png' %}" alt="">
+    </div>
+    <h1 class="font-extrabold text-2xl md:text-3xl text-white mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
+        Time to Add Some Good/Bad Traits</h1>
+    <form method="POST" action="{% url 'traits' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+        {% csrf_token %}
+        <div class="mb-4">{{ form.title }}</div>
+        <div class="mb-3">{{ form.content }}</div>
+        <label for="id_trait_type" class="font-bold mb-1 text-gray-700 block">Is It A:</label>
+        <div class="flex flex-row justify-center">
+            <div class="mb-6 mx-6 text-gray-700">{{ form.trait_type.0 }}</div>
+            <div class="mb-6 mx-6 text-gray-700">{{ form.trait_type.1 }}</div>
+        </div>
+        <input type="submit" name="Create Trait" class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
+    </form>
+</div>
+
+{% if user.is_authenticated %}
+<h1 class="flex justify-center">Welcome {{ user.username }}</h1>
+{% else %}
+<h2>Please login</h2>
+{% endif %}
+
+<div class="block-container bg-top bg-cover -mt-0 -mr-0 -mb-0 -ml-0 pt-0 pr-0 pb-0 pl-0">
+    <div class="bg-gray-100 bg-top bg-cover mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+        <div
+            class="relative sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-top bg-cover mt-0 mr-auto mb-0 ml-auto pt-16 pr-4 pb-16 pl-4 ">
+            <h2
+                class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-0 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
+                All the Traits!!</h2>
+                <div
+                class="relative gap-5 sm:grid-cols-2 lg:grid-cols-3 grid bg-top bg-cover mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">                
+
+{% if user.is_authenticated %}
+{% for trait in traits %}
+
+<div {% if trait.trait_type == 'NEGATIVE' %}
+    class="bg-red-100 border border-red-500 text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between  overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" {% elif trait.trait_type == 'POSITIVE' %} class="bg-green-100 border border-green-500 text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between  overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" {% endif %}>
+    <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
+        <div
+            class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
+            <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
+                <svg class="svg-icon" viewBox="0 0 20 20">
+                    <path d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                </svg>
+            </p>
+        </div>
+        <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">{{ trait.title|title }}</h2>
+        <!-- <span class="text-xs italic text-gray-600">Added On: {{ trait.created }}</span> -->
+        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900" contenteditable="false"
+            disabled="">{{ trait.content }}</p>
+
+            <div class="flex flex-row justify-center my-4">
+            <div
+            class="bg-blue-700 hover:bg-blue-900 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-2 mb-2 ml-2 pt-2 pr-4 pb-2 pl-4">
+            <a href="#" class="inline-flex mt-0 mr-2 mb-0 ml-2 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                disabled="">Update</a>
+            </div>
+            <div
+                class="bg-gray-600 hover:bg-red-600 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-0 mb-2 ml-0 pt-2 pr-4 pb-2 pl-4">
+                <a href="#" class="inline-flex mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
+                    disabled="">Delete</a>
+            </div>
+        </div>
+            <i><span class="text-xs">Last Updated: {{ trait.updated }}</span></i>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<h2>Please Login to see this content</h2>
+{% endif %}
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock content %}

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'promises',
     'sex',
     'stats',
+    'traits',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

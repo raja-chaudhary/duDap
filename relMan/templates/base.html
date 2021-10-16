@@ -50,11 +50,14 @@
                     <a href="/dates" class="text-black rounded px-4 flex-shrink-0 mt-1">IMPORTANT DATES</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
-                    <a href="/stats" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">STATS</a>
+                    <a href="/traits" class="text-black rounded px-4 flex-shrink-0 mt-1">TRAITS</a>
                 </div>
                 <div class="relative cl-effect-4 flex">
                     <a href="/sex-counter" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">SEX
                         COUNTER</a>
+                </div>
+                <div class="relative cl-effect-4 flex">
+                    <a href="/stats" class="text-black rounded px-4 flex-shrink-0 mt-1 text-center">STATS</a>
                 </div>
                 {% if user.is_authenticated %}
                 <div class="relative cl-effect-4 flex">
@@ -80,11 +83,13 @@
             <a href="/dates"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">IMPORTANT
                 DATES</a>
-            <a href="/stats"
-                class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">STATS</a>
+            <a href="/traits"
+            class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">TRAITS</a>
             <a href="/sex-counter"
                 class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">SEX
                 COUNTER</a>
+            <a href="/stats"
+            class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">STATS</a>
             {% if user.is_authenticated %}
             <a href="/accounts/logout/"
             class="block text-black hover:bg-appBlue hover:text-white rounded px-2 mt-2 text-center uppercase">LOGOUT</a>
