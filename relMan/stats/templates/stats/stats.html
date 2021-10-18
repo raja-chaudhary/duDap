@@ -10,7 +10,7 @@
         var myChart1 = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Total Sex', 'Total Arguments'],
+                labels: ['All Sex', 'All Arguments'],
                 datasets: [{
                     label: 'Sex vs Arguments',
                     data: [{{ charts.0.all_sex }}, {{ charts.0.all_arguments }}],
@@ -42,7 +42,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'All Sex versus Arguments So Far!!'
+                    text: 'All Sex versus Arguments So Far!!',
                   }
             }
         });
@@ -85,7 +85,11 @@
                         beginAtZero: true,
                         ticks: {
                             stepSize: 5
-                          }
+                          },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Sex Count'
+                        },
                     }]
                 },
                 title: {
@@ -139,7 +143,11 @@
                         beginAtZero: true,
                         ticks: {
                             stepSize: 5
-                          }
+                          },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Arguments Count'
+                        },
                     }]
                 },
                 title: {
@@ -167,9 +175,15 @@
 
 <h1>You had sex <span class="text-2xl title">{{ charts.1.sex_this_year }} times</span> and you argued <span class="text-2xl title">{{ charts.2.arguments_this_year }} times</span> this year</h1>
 
-<canvas id="myChart1" width="400" height="100"></canvas>
-<canvas class="container flex mx-auto my-24" id="myChart2" width="400" height="100"></canvas>
-<canvas class="container flex mx-auto my-8" id="myChart3" width="400" height="100"></canvas>
+<div class="w-full lg:w-1/2 flex mx-auto px-6">
+    <canvas id="myChart1" width="200" height="100"></canvas>
+</div>
+<div class="w-full lg:w-1/2 flex mx-auto px-6">
+    <canvas class="container flex mx-auto my-24" id="myChart2" width="300" height="100"></canvas>
+</div>
+<div class="w-full lg:w-1/2 flex mx-auto px-6">
+    <canvas class="container mx-auto my-8" id="myChart3" width="400" height="100"></canvas>
+</div>
 
 
 {% endblock content %}

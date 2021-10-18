@@ -158,7 +158,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 3
 LOGIN_REDIRECT_URL = '/discussions'
-
+# Important to make emails mandatory during signup
+ACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -170,3 +171,10 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+# Google Email Account Settings
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = DEFAULT_FROM_EMAIL = 'throwawaya846@gmail.com'
+EMAIL_HOST_PASSWORD = 'qawsedrftgyhui123'
