@@ -62,5 +62,5 @@ def deleteDiscussion(request, pk):
     return render(request, 'discussions/delete.html', context)
 
 
-def test_func():
-    return  # adding this function to check github push working or not
+def search(request):
+    return render(request, 'search.html', {})

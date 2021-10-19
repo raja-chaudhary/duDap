@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Search Bar -->
+<section>
+    <div class="flex flex-col justify-center items-center mx-auto bg-purple-500">
+        <div class="bg-purple-400 my-6">
+            <img class="h-64 w-64" src="{% static 'images/dudap.png' %}" alt="">
+        </div>
+        <h1 class="font-extrabold text-2xl md:text-3xl text-white mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
+            Search for Anything Here!</h1>
+        <form method="GET" action="{% url 'search' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+            {% csrf_token %}
+            <input type="text" id="search_input" name="search_input" class="flex mx-auto w-full md:w-64 border border-gray-500 my-3 rounded-lg px-4 text-gray-700">
+            <input type="submit" name="search" class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
+        </form>
+    </div>
+</section>
+
+
+{% endblock %}
