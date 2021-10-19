@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<p class="text-md justify-center flex my-12">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}" class="text-md italic underline text-black text-appBlue mx-1"> sign in</a>.{% endblocktrans %}</p>
+
+<h1 class="text-2xl justify-center flex">{% trans "Sign Up Here" %}</h1>
+
+<form id="signup_form" method="post" action="{% url 'account_signup' %}" class="signup flex flex-col mx-auto justify-center relative bg-white shadow-md border rounded px-8 pt-6 pb-8 mx-4 w-full md:w-1/2 my-6">
+  {% csrf_token %}
+  <div class="flex mx-auto w-full md:w-1/2 border border-gray-500 my-3 rounded-lg px-4 text-gray-700">{{ form.email }}</div>
+  <div class="flex mx-auto w-full md:w-1/2 border border-gray-500 my-3 rounded-lg px-4 text-gray-700">{{ form.username }}</div>
+  <div class="flex mx-auto w-full md:w-1/2 border border-gray-500 my-3 rounded-lg px-4 text-gray-700">{{ form.password1 }}</div>
+  <div class="flex mx-auto w-full md:w-1/2 border border-gray-500 my-3 rounded-lg px-4 text-gray-700">{{ form.password2 }}</div>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+</form>
+
+{% endblock %}
