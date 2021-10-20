@@ -3,6 +3,12 @@ from django.http import HttpResponse
 from .models import Discussion
 from .forms import DiscussionForm
 from django.contrib.auth.decorators import login_required
+from lies.models import Lie
+from dates.models import Date
+from promises.models import Promise
+from traits.models import Trait
+# import chain method to chain multiple lists into one single list
+from itertools import chain
 # Create your views here.
 
 
@@ -63,4 +69,22 @@ def deleteDiscussion(request, pk):
 
 
 def search(request):
+    if request.method == 'GET':
+        search_input = request.GET.get('search_input', False)
+        searched_discussions = Discussion.objects.filter(
+            content__contains=search_input)
+        searched_lies = Lie.objects.filter(title__contains=search_input)
+        searched_promises = Promise.objects.filter(
+            content__contains=search_input)
+        searched_dates = Date.objects.filter(title__contains=search_input)
+        searched_traits_title = Trait.objects.filter(
+            title__contains=search_input)
+        searched_traits_content = Trait.objects.filter(
+            content__contains=search_input)
+
+        search_list = list(chain(searched_discussions, searched_lies,
+                           searched_promises, searched_dates, searched_traits_title, searched_traits_content))
+        print(search_list)
+        return render(request, 'search.html', {'search_list': search_list})
+
     return render(request, 'search.html', {})

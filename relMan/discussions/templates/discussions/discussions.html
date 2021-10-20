@@ -7,6 +7,15 @@
     <div class="bg-purple-400 my-6">
         <img class="h-64 w-64" src="{% static 'images/dudap.png' %}" alt="">
     </div>
+    <!-- Search Form -->
+    <h1 class="font-extrabold text-2xl md:text-3xl text-white mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
+        Search for Anything Here!</h1>
+    <form method="GET" action="{% url 'search' %}" class="relative bg-white shadow-md border border-purple-500 rounded px-8 pt-6 pb-8 mb-4 mx-4">
+        <input type="text" id="search_input" name="search_input" class="flex mx-auto w-full md:w-64 h-8 border border-purple-500 mt-3 mb-6 rounded-lg px-4 text-purple-600">
+        <input type="submit" name="search" class="shadow bg-purple-500 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
+    </form>
+
+    <!-- Arguments Form -->
     <h1 class="font-extrabold text-2xl md:text-3xl text-white mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
         All Arguments and Discussions</h1>
     <form method="POST" action="{% url 'discussions' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
