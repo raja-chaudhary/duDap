@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import Trait
 from .forms import TraitForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
 
 # Create your views here.
 
@@ -10,7 +12,9 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def traits_view(request):
     traits = Trait.objects.filter(trait_user=request.user)
-    print(traits)
+    paginator = Paginator(traits, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     form = TraitForm()
 
@@ -22,6 +26,6 @@ def traits_view(request):
             form.save()
         return redirect('/traits')
 
-    context = {'traits': traits, 'form': form}
+    context = {'traits': page_obj, 'form': form}
 
     return render(request, 'traits/traits.html', context)

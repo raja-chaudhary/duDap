@@ -84,7 +84,6 @@ def search(request):
 
         search_list = list(chain(searched_discussions, searched_lies,
                            searched_promises, searched_dates, searched_traits_title, searched_traits_content))
-        print(search_list)
         return render(request, 'search.html', {'search_list': search_list})
 
     return render(request, 'search.html', {})
