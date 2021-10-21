@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import Date, REMINDER_CHOICES
 from .forms import DateForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
 # Create your views here.
 
 
@@ -14,6 +16,9 @@ def index(request):
 def date_view(request):
 
     dates = Date.objects.filter(date_user=request.user)
+    paginator = Paginator(dates, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     form = DateForm()
 
@@ -25,7 +30,7 @@ def date_view(request):
             form.save()
         return redirect('/dates')
 
-    context = {'dates': dates, 'form': form,
+    context = {'dates': page_obj, 'form': form,
                'reminder_choices': REMINDER_CHOICES}
 
     return render(request, 'dates/dates.html', context)

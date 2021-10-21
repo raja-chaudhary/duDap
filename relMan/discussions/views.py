@@ -9,6 +9,8 @@ from promises.models import Promise
 from traits.models import Trait
 # import chain method to chain multiple lists into one single list
 from itertools import chain
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
 # Create your views here.
 
 
@@ -20,6 +22,9 @@ def index(request):
 def discussion_view(request):
 
     discussions = Discussion.objects.filter(user=request.user)
+    paginator = Paginator(discussions, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     form = DiscussionForm()
 
@@ -31,7 +36,7 @@ def discussion_view(request):
             form.save()
         return redirect('/discussions')
 
-    context = {'discussions': discussions, 'form': form}
+    context = {'discussions': page_obj, 'form': form}
 
     return render(request, 'discussions/discussions.html', context)
 

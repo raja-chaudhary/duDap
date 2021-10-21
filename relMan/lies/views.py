@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import Lie
 from .forms import LieForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
 # Create your views here.
 
 
@@ -14,6 +16,9 @@ def index(request):
 def lie_view(request):
 
     lies = Lie.objects.filter(lie_user=request.user)
+    paginator = Paginator(lies, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     form = LieForm()
 
@@ -25,7 +30,7 @@ def lie_view(request):
             form.save()
         return redirect('/lies')
 
-    context = {'lies': lies, 'form': form}
+    context = {'lies': page_obj, 'form': form}
 
     return render(request, 'lies/lies.html', context)
 

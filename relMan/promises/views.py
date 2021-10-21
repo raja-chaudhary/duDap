@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import Promise
 from .forms import PromiseForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
 # Create your views here.
 
 
@@ -14,6 +16,9 @@ def index(request):
 def promise_view(request):
 
     promises = Promise.objects.filter(promise_user=request.user)
+    paginator = Paginator(promises, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     form = PromiseForm()
 
@@ -25,7 +30,7 @@ def promise_view(request):
             form.save()
         return redirect('/promises')
 
-    context = {'promises': promises, 'form': form}
+    context = {'promises': page_obj, 'form': form}
 
     return render(request, 'promises/promises.html', context)
 
