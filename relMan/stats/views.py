@@ -14,7 +14,7 @@ def stats_view(request):
         sex_ytd_monthly_weekly(request),
         arguments_ytd_monthly_weekly(request)
     ]
-
+    print(charts)
     return render(request, "stats/stats.html", context={"charts": charts})
 
 
@@ -34,13 +34,13 @@ def sex_ytd_monthly_weekly(request):
     weekly_startdate = startdate - timedelta(days=6)
     monthly_startdate = startdate - timedelta(days=30)
     # ytd_enddate = datetime(2021, 1, 1)
-    print(starting_day_of_current_year)
     sex_past_week = Sex.objects.filter(sex_user=request.user,
                                        created__range=[weekly_startdate, startdate]).count()
     sex_past_month = Sex.objects.filter(sex_user=request.user,
                                         created__range=[monthly_startdate, startdate]).count()
     sex_this_year = Sex.objects.filter(sex_user=request.user,
                                        created__range=[starting_day_of_current_year, startdate]).count()
+    print(sex_past_week)
 
     context = {
         'sex_past_week': sex_past_week,

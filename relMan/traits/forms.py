@@ -18,14 +18,14 @@ class TraitForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update(
             {
-                'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-md',
+                'class': 'border rounded w-full py-2 px-4 text-purple-500 shadow-sm leading-none focus:outline-none focus:ring focus:ring-purple-600 focus:ring-opacity-50 placeholder-purple-500 bg-purple-50',
                 'placeholder': 'Add new trait...'})
         self.fields['content'].widget.attrs.update(
             {
-                'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline text-md',
+                'class': 'border rounded w-full py-2 px-4 text-purple-500 shadow-sm leading-none focus:outline-none focus:ring focus:ring-purple-600 focus:ring-opacity-50 placeholder-purple-500 bg-purple-50',
                 'placeholder': 'Add trait context...'
             })
         self.fields['trait_type'].widget.attrs.update(
             {
-                'class': 'text-gray-600 text-3xl h-3 w-3 text-red-600',
+                'class': 'text-purple-600 ',
             })
