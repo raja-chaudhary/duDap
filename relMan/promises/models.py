@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
+from datetime import date
 
 # Create your models here.
 
@@ -16,3 +17,8 @@ class Promise(models.Model):
 
     def __str__(self):
         return self.title
+
+    # Adding the property to pass the context in the template to check if the date is overdue or not
+    @property
+    def is_past_due(self):
+        return date.today() > self.deliver_by
