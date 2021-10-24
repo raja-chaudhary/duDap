@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<div class="flex flex-col justify-center items-center mx-auto bg-gradient-to-b from-gray-100 to-white">
+<div class="flex flex-col justify-center items-center mx-auto bg-gradient-to-b from-white to-gray-100">
     <div class="bg-white my-6 rounded">
         <img class="h-64 w-64 rounded-full" src="{% static 'images/dudap.png' %}" alt="">
     </div>
@@ -22,12 +22,6 @@
         <input type="submit" name="Create Date" class="shadow bg-purple-600 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
     </form>
 </div>
-
-{% if user.is_authenticated %}
-<h1 class="flex justify-center">Welcome {{ user.username }}</h1>
-{% else %}
-<h2>Please login</h2>
-{% endif %}
 
 <div class="block-container bg-top bg-cover -mt-0 -mr-0 -mb-0 -ml-0 pt-0 pr-0 pb-0 pl-0">
     <div class="bg-gray-100 bg-top bg-cover mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
