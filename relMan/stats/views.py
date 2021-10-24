@@ -2,7 +2,8 @@ from django.shortcuts import render
 from sex.models import Sex
 from discussions.models import Discussion
 from django.contrib.auth.decorators import login_required
-from datetime import date, timedelta, datetime
+import pytz
+from datetime import date, timedelta, datetime, timezone
 
 
 # Create your views here.
@@ -14,7 +15,6 @@ def stats_view(request):
         sex_ytd_monthly_weekly(request),
         arguments_ytd_monthly_weekly(request)
     ]
-    print(charts)
     return render(request, "stats/stats.html", context={"charts": charts})
 
 
@@ -40,7 +40,6 @@ def sex_ytd_monthly_weekly(request):
                                         created__range=[monthly_startdate, startdate]).count()
     sex_this_year = Sex.objects.filter(sex_user=request.user,
                                        created__range=[starting_day_of_current_year, startdate]).count()
-    print(sex_past_week)
 
     context = {
         'sex_past_week': sex_past_week,

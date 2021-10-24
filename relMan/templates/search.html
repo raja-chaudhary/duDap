@@ -6,15 +6,15 @@
 
 <!-- Search Bar -->
 <section>
-    <div class="flex flex-col justify-center items-center mx-auto bg-transparent">
-        <!-- <div class="bg-purple-400 my-6">
-            <img class="h-64 w-64" src="{% static 'images/dudap.png' %}" alt="">
-        </div> -->
+    <div class="flex flex-col justify-center items-center mx-auto bg-gradient-to-b from-white to-gray-100">
+        <div class="bg-white my-6">
+            <img class="h-64 w-64 rounded-full" src="{% static 'images/dudap.png' %}" alt="">
+        </div>
         <h1 class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
             Search for Anything Here!</h1>
-        <form method="GET" action="{% url 'search' %}" class="relative bg-white shadow-md border border-purple-500 rounded px-8 pt-6 pb-8 mb-4 mx-4">
-            <input type="text" id="search_input" name="search_input" class="flex mx-auto w-full md:w-64 h-8 border border-purple-500 mt-3 mb-6 rounded-lg px-4 text-purple-600">
-            <input type="submit" name="search" class="shadow bg-purple-500 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
+        <form method="GET" action="{% url 'search' %}" class="relative bg-white border border-purple-600 rounded-lg shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+            <input type="text" id="search_input" name="search_input" class="flex mx-auto w-full md:w-64 h-8 border border-purple-500 mt-3 mb-4 px-4 text-purple-600 rounded py-2 text-purple-500 shadow-sm leading-none focus:outline-none focus:ring focus:ring-purple-600 focus:ring-opacity-50 placeholder-purple-500 bg-purple-50" placeholder="Type a Keyword here...">
+            <input type="submit" name="search" value="Search" class="shadow bg-purple-500 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
         </form>
     </div>
 </section>
@@ -35,24 +35,24 @@
     {% for item in search_list %}
     
     <div
-        class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between  overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+        class="bg-white border border-purple-500 text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between  overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
         <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
             <div
-                class="bg-indigo-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
+                class="bg-purple-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
                 <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
                     <svg class="svg-icon" viewBox="0 0 20 20">
                         <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"></path>
                     </svg>
                 </p>
             </div>
-            <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">{{ item.title|title }}</h2>
+            <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0 text-purple-600" contenteditable="false" disabled="">{{ item.title|title }}</h2>
             <!-- <span class="text-xs italic text-gray-600">Added On: {{ trait.created }}</span> -->
-            <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900" contenteditable="false"
+            <p class="text-sm leading-5 mt-0 mr-0 mb-4 ml-0 pt-2 pr-2 pb-2 pl-2 text-purple-600 border border-purple-200 bg-purple-50 rounded-md" contenteditable="false"
                 disabled="">{{ item.content }}</p>
     
-                <div class="flex flex-row justify-center my-4">
+            <!-- <div class="flex flex-row justify-center my-4">
                 <div
-                class="bg-blue-700 hover:bg-blue-900 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-2 mb-2 ml-2 pt-2 pr-4 pb-2 pl-4">
+                class="bg-purple-700 hover:bg-purple-900 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-2 mb-2 ml-2 pt-2 pr-4 pb-2 pl-4">
                 <a href="#" class="inline-flex mt-0 mr-2 mb-0 ml-2 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
                     disabled="">Update</a>
                 </div>
@@ -61,8 +61,8 @@
                     <a href="#" class="inline-flex mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
                         disabled="">Delete</a>
                 </div>
-            </div>
-                <i><span class="text-xs">Last Updated: {{ item.updated }}</span></i>
+            </div> -->
+                <i><span class="text-xs text-purple-600">Last Updated: {{ item.updated }}</span></i>
         </div>
     </div>
     {% endfor %}
