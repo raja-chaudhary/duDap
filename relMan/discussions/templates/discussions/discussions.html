@@ -3,26 +3,26 @@
 {% load static %}
 
 {% block content %}
-<div class="flex flex-col justify-center items-center mx-auto bg-purple-500">
+<div class="flex flex-col justify-center items-center mx-auto bg-gradient-to-b from-white to-gray-100">
     <div class="bg-purple-400 my-6">
-        <img class="h-64 w-64" src="{% static 'images/dudap.png' %}" alt="">
+        <img class="h-64 w-64 rounded-full" src="{% static 'images/dudap.png' %}" alt="">
     </div>
     <!-- Search Form -->
-    <h1 class="font-extrabold text-2xl md:text-3xl text-white mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
+    <h1 class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
         Search for Anything Here!</h1>
-    <form method="GET" action="{% url 'search' %}" class="relative bg-white shadow-md border border-purple-500 rounded px-8 pt-6 pb-8 mb-4 mx-4">
-        <input type="text" id="search_input" name="search_input" class="flex mx-auto w-full md:w-64 h-8 border border-purple-500 mt-3 mb-6 rounded-lg px-4 text-purple-600">
-        <input type="submit" name="search" class="shadow bg-purple-500 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
+    <form method="GET" action="{% url 'search' %}" class="relative bg-white border border-purple-600 rounded-lg shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+        <input type="text" id="search_input" name="search_input" class="flex mx-auto w-full md:w-64 h-8 border border-purple-500 mt-3 mb-4 px-4 text-purple-600 rounded py-2 text-purple-500 shadow-sm leading-none focus:outline-none focus:ring focus:ring-purple-600 focus:ring-opacity-50 placeholder-purple-500 bg-purple-50" placeholder="Type a Keyword here...">
+        <input type="submit" name="search" value="Search" class="shadow bg-purple-500 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
     </form>
 
     <!-- Arguments Form -->
-    <h1 class="font-extrabold text-2xl md:text-3xl text-white mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
+    <h1 class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">
         All Arguments and Discussions</h1>
-    <form method="POST" action="{% url 'discussions' %}" class="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+    <form method="POST" action="{% url 'discussions' %}" class="relative bg-white border border-purple-600 rounded-lg shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
         {% csrf_token %}
-        <div class="mb-4">{{ form.title }}</div>
-        <div class="mb-6">{{ form.content }}</div>
-        <input type="submit" name="Create Discussion" class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
+        <div class="mb-4 border border-purple-600 rounded">{{ form.title }}</div>
+        <div class="mb-4 border border-purple-600 rounded">{{ form.content }}</div>
+        <input type="submit" name="Create Discussion" class="shadow bg-purple-600 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
     </form>
 </div>
 
@@ -46,36 +46,36 @@
 {% for discussion in discussions %}
 
 <div
-    class="bg-white text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between  overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
+    class="bg-white border border-purple-500 text-left transition-shadow duration-200 rounded group hover:shadow-2xl flex bg-top bg-cover flex-col justify-between  overflow-hidden shadow-xl mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0">
     <div class="bg-top bg-cover mt-5 mr-5 mb-5 ml-5 pt-0 pr-0 pb-0 pl-0">
         <div
             class="bg-purple-50 text-center flex w-10 h-10 bg-top bg-cover justify-center items-center rounded-full mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0">
             <p class="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">
                 <svg class="w-8 
-      h-8 text-blue-700" stroke="currentColor" viewBox="0 0 52 52">
+      h-8 text-purple-700" stroke="currentColor" viewBox="0 0 52 52">
                     <polygon strokewidth="3" strokelinecap="round" strokelinejoin="round"
                         fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
                 </svg>
             </p>
         </div>
-        <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false" disabled="">{{ discussion.title|title }}</h2>
-        <span class="text-xs italic text-gray-600">Added On: {{ discussion.created }}</span>
-        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-gray-900" contenteditable="false"
+        <h2 class="font-bold mt-0 mr-0 mb-2 ml-0 pt-0 pr-0 pb-0 pl-0 text-purple-600" contenteditable="false" disabled="">{{ discussion.title|title }}</h2>
+        <span class="text-xs italic text-purple-400 underline">Added On: {{ discussion.created }}</span>
+        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 text-purple-600" contenteditable="false"
             disabled="">{{ discussion.content }}</p>
 
             <div class="flex flex-row justify-center my-4">
             <div
-            class="bg-blue-700 hover:bg-blue-900 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-2 mb-2 ml-2 pt-2 pr-4 pb-2 pl-4">
+            class="shadow bg-purple-600 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold rounded flex cursor-pointer mt-0 mr-2 mb-2 ml-2 pt-2 pr-4 pb-2 pl-4">
             <a href="{% url 'update_discussion' discussion.id %}" class="inline-flex mt-0 mr-2 mb-0 ml-2 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
                 disabled="">Update</a>
             </div>
             <div
-                class="bg-gray-600 hover:bg-red-600 sm:w-auto sm:mb-0 text-white inline-flex w-full bg-top bg-cover justify-center items-center rounded mt-0 mr-0 mb-2 ml-0 pt-2 pr-4 pb-2 pl-4">
+                class="shadow bg-gray-600 hover:bg-gray-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex cursor-pointer mt-0 mr-0 mb-2 ml-0 pt-2 pr-6 pb-2 pl-6">
                 <a href="{% url 'delete_discussion' discussion.id %}" class="inline-flex mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0" contenteditable="false"
                     disabled="">Delete</a>
             </div>
         </div>
-            <i><span class="text-xs">Last Updated On: {{ discussion.updated }}</span></i>
+            <i><span class="text-xs text-purple-600">Last Updated On: {{ discussion.updated }}</span></i>
     </div>
 </div>
 {% endfor %}
