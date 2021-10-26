@@ -16,6 +16,7 @@ def index(request):
 def lie_view(request):
 
     lies = Lie.objects.filter(lie_user=request.user)
+    print(lies)
     paginator = Paginator(lies, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
