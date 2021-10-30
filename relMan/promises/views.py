@@ -4,6 +4,7 @@ from .models import Promise
 from .forms import PromiseForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -35,9 +36,11 @@ def promise_view(request):
     return render(request, 'promises/promises.html', context)
 
 
+@login_required
 def updatePromise(request, pk):
 
-    promise = Promise.objects.get(id=pk)
+    # promise = Promise.objects.get(id=pk)
+    promise = get_object_or_404(Promise, id=pk, promise_user=request.user)
 
     form = PromiseForm(instance=promise)
 
@@ -54,8 +57,10 @@ def updatePromise(request, pk):
     return render(request, 'promises/update_promise.html', context)
 
 
+@login_required
 def deletePromise(request, pk):
-    promise = Promise.objects.get(id=pk)
+    # promise = Promise.objects.get(id=pk)
+    promise = get_object_or_404(Promise, id=pk, promise_user=request.user)
 
     if request.method == 'POST':
         promise.delete()

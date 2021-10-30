@@ -10,6 +10,8 @@ from traits.models import Trait
 # import chain method to chain multiple lists into one single list
 from itertools import chain
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 
@@ -41,9 +43,11 @@ def discussion_view(request):
     return render(request, 'discussions/discussions.html', context)
 
 
+@login_required
 def updateDiscussion(request, pk):
 
-    discussion = Discussion.objects.get(id=pk)
+    # discussion = Discussion.objects.get(id=pk)
+    discussion = get_object_or_404(Discussion, id=pk, user=request.user)
 
     form = DiscussionForm(instance=discussion)
 
@@ -60,8 +64,10 @@ def updateDiscussion(request, pk):
     return render(request, 'discussions/update_discussion.html', context)
 
 
+@login_required
 def deleteDiscussion(request, pk):
-    discussion = Discussion.objects.get(id=pk)
+    # discussion = Discussion.objects.get(id=pk)
+    discussion = get_object_or_404(Discussion, id=pk, user=request.user)
 
     if request.method == 'POST':
         discussion.delete()

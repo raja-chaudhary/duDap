@@ -4,6 +4,8 @@ from .models import Date, REMINDER_CHOICES
 from .forms import DateForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 
@@ -36,9 +38,10 @@ def date_view(request):
     return render(request, 'dates/dates.html', context)
 
 
+@login_required
 def updateDate(request, pk):
 
-    date = Date.objects.get(id=pk)
+    date = get_object_or_404(Date, id=pk, date_user=request.user)
 
     form = DateForm(instance=date)
 
@@ -55,8 +58,10 @@ def updateDate(request, pk):
     return render(request, 'dates/update_date.html', context)
 
 
+@login_required
 def deleteDate(request, pk):
-    date = Date.objects.get(id=pk)
+    # date = Date.objects.get(id=pk)
+    date = get_object_or_404(Date, id=pk, date_user=request.user)
 
     if request.method == 'POST':
         date.delete()

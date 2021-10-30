@@ -4,6 +4,7 @@ from .models import Lie
 from .forms import LieForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -36,9 +37,11 @@ def lie_view(request):
     return render(request, 'lies/lies.html', context)
 
 
+@login_required
 def updateLie(request, pk):
 
-    lie = Lie.objects.get(id=pk)
+    # lie = Lie.objects.get(id=pk)
+    lie = get_object_or_404(Lie, id=pk, lie_user=request.user)
 
     form = LieForm(instance=lie)
 
@@ -55,8 +58,10 @@ def updateLie(request, pk):
     return render(request, 'lies/update_lie.html', context)
 
 
+@login_required
 def deleteLie(request, pk):
-    lie = Lie.objects.get(id=pk)
+    # lie = Lie.objects.get(id=pk)
+    lie = get_object_or_404(Lie, id=pk, lie_user=request.user)
 
     if request.method == 'POST':
         lie.delete()

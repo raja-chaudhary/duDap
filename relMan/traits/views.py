@@ -4,6 +4,7 @@ from .models import Trait
 from .forms import TraitForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -34,7 +35,7 @@ def traits_view(request):
 @login_required
 def updateTrait(request, pk):
 
-    trait = Trait.objects.get(id=pk)
+    trait = get_object_or_404(Trait, id=pk, trait_user=request.user)
 
     form = TraitForm(instance=trait)
 
@@ -53,7 +54,7 @@ def updateTrait(request, pk):
 
 @login_required
 def deleteTrait(request, pk):
-    trait = Trait.objects.get(id=pk)
+    trait = get_object_or_404(Trait, id=pk, trait_user=request.user)
 
     if request.method == 'POST':
         trait.delete()
