@@ -46,7 +46,7 @@ def updateDate(request, pk):
         form = DateForm(request.POST, instance=date)
         if form.is_valid():
             form.save()
-            return redirect('/date')
+            return redirect('/dates')
 
     context = {
         'date': date,
@@ -60,7 +60,7 @@ def deleteDate(request, pk):
 
     if request.method == 'POST':
         date.delete()
-        return redirect('/date')
+        return redirect('/dates')
 
     context = {
         'date': date

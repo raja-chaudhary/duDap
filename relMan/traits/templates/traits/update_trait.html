@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block radio_style %}
+<style>
+  input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -4px;
+    left: -1px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #4C1D95;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -4px;
+    left: -1px;
+    position: relative;
+    background-color: #8B5CF6;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #4C1D95;
+}
+</style>
+
+{% endblock radio_style %}
+
+{% block content %}
+<div class="flex flex-col justify-center items-center mx-auto bg-gradient-to-b from-gray-100 to-white">
+    <h1 class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">Update this Trait</h1>
+
+<form method="POST" action="" class="relative bg-white border border-purple-600 rounded-lg shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+    {% csrf_token %}
+    <div class="mb-4 border border-purple-600 rounded">{{form.title}}</div>
+    <div class="mb-4 border border-purple-600 rounded">{{form.content}}</div>
+    <label for="id_trait_type" class="font-bold mb-1 text-purple-600 block">Trait Type:</label>
+    <div class="flex flex-row justify-center">
+        <div class="mb-6 mx-6 text-purple-600">{{ form.trait_type.0 }}</div>
+        <div class="mb-6 mx-6 text-purple-600">{{ form.trait_type.1 }}</div>
+    </div>
+    <input type="submit" name="Update Promise" value="Update" class="shadow bg-purple-600 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">
+</form>
+</div>
+{% endblock content %}
