@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404
 
+from .tasks import test_func
+
 
 # Create your views here.
 
@@ -17,6 +19,7 @@ def index(request):
 @login_required
 def date_view(request):
 
+    test_func.delay()
     dates = Date.objects.filter(date_user=request.user)
     paginator = Paginator(dates, 9)
     page_number = request.GET.get('page')

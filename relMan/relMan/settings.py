@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django_celery_results',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -178,3 +180,15 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = DEFAULT_FROM_EMAIL = 'throwawaya846@gmail.com'
 EMAIL_HOST_PASSWORD = 'qawsedrftgyhui123'
+
+# CELERY CONFIG
+CELERY_BROKER_URL = 'rediss://:pfa07b640d8826b0b1b43df2774545d84787b3d93946fcedd1665c1f9f0a2c232@ec2-3-226-57-3.compute-1.amazonaws.com:9870'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'America/Vancouver'
+
+CELERY_RESULT_BACKEND = 'django-db'
+
+# CELERY BEAT CONFIG
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
