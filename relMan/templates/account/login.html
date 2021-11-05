@@ -47,10 +47,15 @@
   <a href="{{ signup_url }}" class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer">sign up</a> first.{% endblocktrans %}</p>
   {% endif %}
 
-  <div class="relative flex flex-col mx-auto w-96">
-  <form class="login" method="POST" action="{% url 'account_login' %}">
+  <div class="relative flex flex-col mx-auto w-96 ">
+  <form class="login" method="POST" action="{% url 'account_login' %}" class="relative bg-white border border-purple-600 rounded-lg shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
     {% csrf_token %}
-    {{ form.as_p }}
+    <label class="font-bold mb-1 text-purple-600 block mx-2">Enter Your Username:</label>
+    <div class="mb-4 border border-purple-600 rounded mx-2">{{ form.login }}</div>
+    <label class="font-bold mb-1 text-purple-600 block mx-2">Enter Your Password:</label>
+    <div class="mb-4 border border-purple-600 rounded mx-2">{{ form.password }}</div>
+    <label class="font-bold mb-1 text-purple-600 block mx-2">Remember Me:</label>
+    <div class="mb-2 mx-2">{{ form.remember }}</div>
     <!-- <label class="inline-flex items-center mt-3">
       <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600" checked><span class="ml-2 text-gray-700">label</span>
   </label> -->
@@ -58,8 +63,8 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-    <button class="shadow bg-appBlue hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer primaryAction" type="submit">{% trans "Sign In" %}</button>
+    <a class="text-sm italic underline mb-4 text-purple-600 block mx-2" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    <button class="flex mx-auto justify-center shadow bg-purple-600 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold rounded flex cursor-pointer mt-0 mb-2 pt-2 pr-4 pb-2 pl-4 w-32" type="submit">{% trans "Sign In" %}</button>
   </form>
   </div>
 
@@ -67,7 +72,7 @@
   <div>
     <p class="text-lg md:text-xl text-purple-700 mt-6 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">{% blocktrans with site.name as site_name %}If you do not have a duDap account yet, sign up here </p>
       <div
-                  class="flex mx-auto justify-center shadow bg-purple-600 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold rounded flex cursor-pointer mt-0 mb-2 pt-2 pr-4 pb-2 pl-4 w-32">
+                  class="flex mx-auto justify-center shadow bg-gray-600 hover:bg-gray-500 focus:shadow-outline focus:outline-none text-white font-bold rounded flex cursor-pointer mt-0 mb-2 pt-2 pr-4 pb-2 pl-4 w-32">
         <a href="{{ signup_url }}"  class="inline-flex mt-0 mr-2 mb-0 ml-2 pt-0 pr-0 pb-0 pl-0" >Sign Up</a>
       </div>
       <p class="text-lg md:text-xl text-purple-700 mt-0 mr-0 mb-4 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">Or, you can use your Google account to login:{% endblocktrans %}</p>
