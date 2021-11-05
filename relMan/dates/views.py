@@ -1,3 +1,4 @@
+from datetime import date, timedelta, datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Date, REMINDER_CHOICES
@@ -6,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404
 
-from .tasks import test_func
+from .tasks import two_days_prior
 
 
 # Create your views here.
@@ -19,7 +20,8 @@ def index(request):
 @login_required
 def date_view(request):
 
-    test_func.delay()
+    # test_func.delay()
+    # two_days_prior.delay()
     dates = Date.objects.filter(date_user=request.user)
     paginator = Paginator(dates, 9)
     page_number = request.GET.get('page')
@@ -43,6 +45,14 @@ def date_view(request):
 
 @login_required
 def updateDate(request, pk):
+
+    # TESTING FOR CELERY
+    # qs = Date.objects.all()
+    # for item in qs:
+    #     print(item.date - datetime.now().date())
+    #     print(item.date_user.email)
+    #     if (item.date - datetime.now().date()).days == 2:
+    #         print('yes')
 
     date = get_object_or_404(Date, id=pk, date_user=request.user)
 
