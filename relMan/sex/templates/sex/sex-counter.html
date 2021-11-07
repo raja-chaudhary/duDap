@@ -15,7 +15,11 @@
       Sex Counter</h1>
     <h2 class="text-lg mb-2 text-purple-700 rounded">Hello <span class="text-2xl">{{ current_user }}</span> - This is Your Sex Counter</h2>
     <h2 class="text-lg mb-2 text-purple-700 rounded">Since Inception You Have Had Sex - <span class="text-2xl">{{ sex_count }} times</span></h2>
+    {% if sex_count > 0 %}
     <h2 class="text-lg mb-2 text-purple-700 rounded">Your last <span class="text-2xl">fuck</span> was on: {{ last_sex.created|date:"l, dS M Y" }}</h2>
+    {% else %}
+    <h2 class="text-lg mb-2 text-purple-700 rounded">Your have not had <span class="text-2xl">sex</span> yet</h2>
+    {% endif %}
     <div class="flex flex-row justify-center my-12">
       <a href="{% url 'add_sex' %}" class="shadow bg-purple-600 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold rounded flex cursor-pointer mt-0 mr-2 mb-2 ml-2 pt-2 pr-4 pb-2 pl-4">I Just had Sex!</a>
       <a href="{% url 'delete_sex' %}" class="shadow bg-gray-600 hover:bg-gray-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex cursor-pointer mt-0 mr-0 mb-2 ml-0 pt-2 pr-6 pb-2 pl-6">Oops, Wrong Entry!!</a>
