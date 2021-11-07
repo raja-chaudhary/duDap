@@ -16,7 +16,8 @@ def index(request):
 @login_required
 def promise_view(request):
 
-    promises = Promise.objects.filter(promise_user=request.user)
+    promises = Promise.objects.filter(
+        promise_user=request.user).order_by('-updated')
     paginator = Paginator(promises, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -40,7 +41,8 @@ def promise_view(request):
 def updatePromise(request, pk):
 
     # promise = Promise.objects.get(id=pk)
-    promise = get_object_or_404(Promise, id=pk, promise_user=request.user)
+    promise = get_object_or_404(
+        Promise, id=pk, promise_user=request.user)
 
     form = PromiseForm(instance=promise)
 

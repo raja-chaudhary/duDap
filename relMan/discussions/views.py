@@ -23,7 +23,8 @@ def index(request):
 @login_required
 def discussion_view(request):
 
-    discussions = Discussion.objects.filter(user=request.user)
+    discussions = Discussion.objects.filter(
+        user=request.user).order_by('-updated')
     paginator = Paginator(discussions, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

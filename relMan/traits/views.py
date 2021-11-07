@@ -12,7 +12,7 @@ from django.shortcuts import get_object_or_404
 
 @login_required
 def traits_view(request):
-    traits = Trait.objects.filter(trait_user=request.user)
+    traits = Trait.objects.filter(trait_user=request.user).order_by('-updated')
     paginator = Paginator(traits, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

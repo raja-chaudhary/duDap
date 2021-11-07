@@ -22,7 +22,7 @@ def date_view(request):
 
     # test_func.delay()
     # two_days_prior.delay()
-    dates = Date.objects.filter(date_user=request.user)
+    dates = Date.objects.filter(date_user=request.user).order_by('-updated')
     paginator = Paginator(dates, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

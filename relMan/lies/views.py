@@ -16,7 +16,7 @@ def index(request):
 @login_required
 def lie_view(request):
 
-    lies = Lie.objects.filter(lie_user=request.user)
+    lies = Lie.objects.filter(lie_user=request.user).order_by('-updated')
     print(lies)
     paginator = Paginator(lies, 9)
     page_number = request.GET.get('page')
