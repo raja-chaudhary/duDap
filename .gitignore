@@ -1,5 +1,7 @@
 venv
 node_modules
+data.json
+db.json
 
 ### Django ###
 *.log
