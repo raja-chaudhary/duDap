@@ -150,23 +150,29 @@
 {% endblock charts %}
 
 {% block content %}
+<div class="flex flex-col justify-center items-center mx-auto bg-gradient-to-b from-white to-gray-100 py-0">
+    
 
-<h1>Hello Charts</h1>
-<h2>You Had Sex {{ charts.0.all_sex }} times</h2>
-<h2>You Had Arguments {{ charts.0.all_arguments }} times</h2>
-<h2>You Had Sex {{ charts.1.sex_past_week }} times in last 1 week</h2>
-<h2>You Had Arguments {{ charts.2.arguments_past_week }} times in last 1 week</h2>
+    <div class="w-full lg:w-1/2 flex mx-auto px-6">
+        <canvas id="myChart1" width="200" height="100"></canvas>
+    </div>
+    <div class="w-full lg:w-1/2 flex mx-auto px-6">
+        <canvas class="container flex mx-auto my-24" id="myChart2" width="300" height="100"></canvas>
+    </div>
+    <div class="w-full lg:w-1/2 flex mx-auto px-6">
+        <canvas class="container mx-auto my-8" id="myChart3" width="400" height="100"></canvas>
+    </div>
 
-<h1>You had sex <span class="text-2xl title">{{ charts.1.sex_this_year }} times</span> and you argued <span class="text-2xl title">{{ charts.2.arguments_this_year }} times</span> this year</h1>
+    <!-- Summary -->
+    <div class="relative bg-white border border-purple-600 rounded-lg shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4">
+        <h1 class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">Summary</h1>
+        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-2 pr-2 pb-2 pl-2 text-purple-600 border border-purple-200 bg-purple-50 rounded-md">You Had Sex {{ charts.0.all_sex }} times</p>
+        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-2 pr-2 pb-2 pl-2 text-purple-600 border border-purple-200 bg-purple-50 rounded-md">You Had Arguments {{ charts.0.all_arguments }} times</p>
+        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-2 pr-2 pb-2 pl-2 text-purple-600 border border-purple-200 bg-purple-50 rounded-md">You Had Sex {{ charts.1.sex_past_week }} times in last 1 week</p>
+        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-2 pr-2 pb-2 pl-2 text-purple-600 border border-purple-200 bg-purple-50 rounded-md">You Had Arguments {{ charts.2.arguments_past_week }} times in last 1 week</p>
+        <p class="text-sm leading-5 mt-0 mr-0 mb-0 ml-0 pt-2 pr-2 pb-2 pl-2 text-purple-600 border border-purple-200 bg-purple-50 rounded-md">You had sex <span class="text-2xl title">{{ charts.1.sex_this_year }} times</span> and you argued <span class="text-2xl title">{{ charts.2.arguments_this_year }} times</span> this year</p>
+    </div>
 
-<div class="w-full lg:w-1/2 flex mx-auto px-6">
-    <canvas id="myChart1" width="200" height="100"></canvas>
-</div>
-<div class="w-full lg:w-1/2 flex mx-auto px-6">
-    <canvas class="container flex mx-auto my-24" id="myChart2" width="300" height="100"></canvas>
-</div>
-<div class="w-full lg:w-1/2 flex mx-auto px-6">
-    <canvas class="container mx-auto my-8" id="myChart3" width="400" height="100"></canvas>
 </div>
 
 
