@@ -165,6 +165,7 @@ SITE_ID = 4
 LOGIN_REDIRECT_URL = '/discussions'
 # Important to make emails mandatory during signup
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
