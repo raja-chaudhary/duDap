@@ -1,0 +1,10 @@
+1. Add encryption to searchable fields.. Use the django-searchable-encrypted-fields 0.1.9 package
+
+https://pypi.org/project/django-searchable-encrypted-fields/
+
+
+2. Add more stats to the stats package
+
+3. Add in app notifications
+
+4. 
