@@ -1,7 +1,7 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
-from django_cryptography.fields import encrypt
+# from django_cryptography.fields import encrypt
 
 
 # Create your models here.
@@ -12,10 +12,10 @@ TRAIT_CHOICES = (
 
 
 class Trait(models.Model):
-    title = encrypt(models.CharField(max_length=200))
-    content = encrypt(models.TextField())
-    trait_type = encrypt(models.CharField(
-        max_length=20, choices=TRAIT_CHOICES, default='POSITIVE', blank=False))
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    trait_type = models.CharField(
+        max_length=20, choices=TRAIT_CHOICES, default='POSITIVE', blank=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     trait_user = models.ForeignKey(

@@ -1,7 +1,6 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
-from django_cryptography.fields import encrypt
 
 
 # Create your models here.
@@ -13,7 +12,7 @@ REMINDER_CHOICES = (
 
 
 class Date(models.Model):
-    title = encrypt(models.CharField(max_length=200))
+    title = models.CharField(max_length=200)
     date = models.DateField(blank=True, default=datetime.date.today)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

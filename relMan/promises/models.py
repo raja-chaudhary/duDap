@@ -2,15 +2,15 @@ from django.db import models
 import datetime
 from django.contrib.auth.models import User
 from datetime import date
-from django_cryptography.fields import encrypt
+# from django_cryptography.fields import encrypt
 
 
 # Create your models here.
 
 
 class Promise(models.Model):
-    title = encrypt(models.CharField(max_length=200))
-    content = encrypt(models.TextField())
+    title = models.CharField(max_length=200)
+    content = models.TextField()
     deliver_by = models.DateField(
         blank=True, default=datetime.date.today)
     created = models.DateTimeField(auto_now_add=True)
