@@ -96,6 +96,9 @@ def search(request):
 
         search_list = list(chain(searched_discussions, searched_lies,
                            searched_promises, searched_dates, searched_traits_title, searched_traits_content))
-        return render(request, 'search.html', {'search_list': search_list})
+        return render(request, 'search.html', {
+            'search_list': search_list,
+            'values': request.GET
+        })
 
     return render(request, 'search.html', {})
