@@ -96,6 +96,8 @@ def search(request):
 
         search_list = list(chain(searched_discussions, searched_lies,
                            searched_promises, searched_dates, searched_traits_title, searched_traits_content))
+
+        # passing values as the context to preserve the search term in the form once the query has been submitted
         return render(request, 'search.html', {
             'search_list': search_list,
             'values': request.GET
