@@ -92,9 +92,9 @@ WSGI_APPLICATION = 'relMan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dudapdb',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': 'localhost'
     }
 }
@@ -182,11 +182,11 @@ SOCIALACCOUNT_PROVIDERS = {
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = DEFAULT_FROM_EMAIL = 'throwawaya846@gmail.com'
-EMAIL_HOST_PASSWORD = 'qawsedrftgyhui123'
+EMAIL_HOST_USER = DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # CELERY CONFIG
-CELERY_BROKER_URL = 'rediss://:pfa07b640d8826b0b1b43df2774545d84787b3d93946fcedd1665c1f9f0a2c232@ec2-3-226-57-3.compute-1.amazonaws.com:9870'
+CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
