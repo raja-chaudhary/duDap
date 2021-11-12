@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dudap.herokuapp.com']
+ALLOWED_HOSTS = ['dudap.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -71,7 +71,8 @@ ROOT_URLCONF = 'relMan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, "templates", "allauth"],
+        'DIRS': [os.path.dirname(
+            BASE_DIR), "templates", "allauth"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
