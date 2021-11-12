@@ -71,7 +71,7 @@ ROOT_URLCONF = 'relMan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates', 'allauth'],
+        'DIRS': ["relMan", "templates", "allauth"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
