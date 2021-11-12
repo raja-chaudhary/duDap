@@ -1,1 +1,1 @@
-web: gunicorn relMan.relMan.wsgi
+web: gunicorn --pythonpath relMan relMan.wsgi
