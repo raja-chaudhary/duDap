@@ -163,7 +163,7 @@ MEDIA_ROOT = os.path.join(os.path.dirname(
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SITE_ID = 4
+SITE_ID = 5
 LOGIN_REDIRECT_URL = '/discussions'
 # Important to make emails mandatory during signup
 ACCOUNT_EMAIL_REQUIRED = True
