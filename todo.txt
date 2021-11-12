@@ -7,4 +7,4 @@ https://pypi.org/project/django-searchable-encrypted-fields/
 
 3. Add in app notifications
 
-4. 
+4. create 'dudapcontact@gmail.com' and configure it with sendgrid to send emails
