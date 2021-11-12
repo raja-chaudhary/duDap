@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static %} 
 
 {% load i18n %}
 {% load account %}
@@ -8,17 +8,22 @@
 
 
 {% block content %}
-<h1>{% trans "Confirm E-mail Address" %}</h1>
+<div class="flex flex-col justify-center items-center mx-auto bg-gradient-to-b from-gray-100 to-white">
+    <!-- <div class="bg-white my-6">
+        <img class="h-64 w-64 rounded-full" src="{% static 'images/dudap.png' %}" alt="">
+    </div> -->
+  
+    <h1 class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">{% trans "Confirm E-mail Address" %}</h1>
 
 {% if confirmation %}
 
 {% user_display confirmation.email_address.user as user_display %}
 
-<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
+<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}" class="text-purple-500 underline">{{ email }}</a> is an e-mail address for user <span class="text-purple-500">"{{ user_display }}"</span>.{% endblocktrans %}</p>
 
 <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
 {% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
+    <button type="submit" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded flex mx-auto cursor-pointer my-4">{% trans 'Confirm' %}</button>
 </form>
 
 {% else %}
@@ -26,6 +31,7 @@
 {% url 'account_email' as email_url %}
 
 <p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+</div>
 
 {% endif %}
 
