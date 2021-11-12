@@ -1,0 +1,1 @@
+web: gunicorn relMan.relMan.wsgi
