@@ -63,6 +63,7 @@
                 }]
             },
             options: {
+                maintainAspectRatio: false,
                 responsive: true,
                 scales: {
                     yAxes: [{
@@ -117,6 +118,7 @@
                 }]
             },
             options: {
+                maintainAspectRatio: false,
                 responsive: true,
                 scales: {
                     yAxes: [{
@@ -156,11 +158,14 @@
     <div class="w-full lg:w-1/2 flex mx-auto px-6">
         <canvas id="myChart1" width="200" height="100"></canvas>
     </div>
-    <div class="w-full lg:w-1/2 flex mx-auto px-6">
-        <canvas class="container flex mx-auto my-24" id="myChart2" width="300" height="100"></canvas>
+    <div class="relative w-full lg:w-1/2 flex mx-auto px-6 my-12" style="height: 40vh;">
+        <canvas class="container flex mx-auto" id="myChart2" width="300" height="100"></canvas>
     </div>
-    <div class="w-full lg:w-1/2 flex mx-auto px-6">
-        <canvas class="container mx-auto my-8" id="myChart3" width="400" height="100"></canvas>
+    <!-- <div class="w-full lg:w-1/2 hidden md:flex mx-auto px-6">
+        <canvas class="container flex mx-auto my-24" id="myChart2" width="300" height="100"></canvas>
+    </div> -->
+    <div class="relative w-full lg:w-1/2 flex mx-auto px-6 my-12" style="height: 40vh;">
+        <canvas class="container flex mx-auto" id="myChart3" width="300" height="100"></canvas>
     </div>
 
     <!-- Summary -->
