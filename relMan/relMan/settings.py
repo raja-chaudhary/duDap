@@ -214,3 +214,6 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+# For secure ssl redirect always
+SECURE_SSL_REDIRECT = True
