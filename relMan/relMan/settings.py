@@ -202,6 +202,9 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 django_heroku.settings(locals())
 
+# For secure ssl redirect always
+SECURE_SSL_REDIRECT = True
+
 
 ##################
 # LOCAL SETTINGS #
@@ -214,6 +217,3 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-
-# For secure ssl redirect always
-SECURE_SSL_REDIRECT = True
