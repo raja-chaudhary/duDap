@@ -16,6 +16,16 @@
   <h1 class="font-extrabold text-2xl md:text-3xl text-purple-500 mt-6 mr-0 mb-6 ml-0 pt-0 pr-0 pb-0 pl-0 text-center">{% trans "Sign Up Here" %}</h1>
 
   <form id="signup_form" method="post" action="{% url 'account_signup' %}" class="relative bg-white border border-purple-600 rounded-lg shadow-md rounded px-8 pt-6 pb-8 mb-16 mx-4">
+      {% if form.errors %}
+      <p class="text-purple-700 font-bold my-2">Errors:</p>
+      {% for field in form %}
+      {% for error in field.errors %}
+        <div class="alert alert-error my-2">
+          <span class="text-purple-700 italic border-2 border-purple-700 rounded-md bg-purple-50 px-2 py-1 my-2"> {{error}} <span>
+        </div>
+      {% endfor %}
+      {% endfor %}
+      {% endif %}
     {% csrf_token %}
     <div class="mb-4 border border-purple-600 rounded">{{ form.email }}</div>
     <div class="mb-4 border border-purple-600 rounded">{{ form.username }}</div>
