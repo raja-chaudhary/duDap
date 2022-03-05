@@ -27,3 +27,5 @@ This is the relationship management tool you were missing all your life. Have yo
 7. Responsive web app across all platforms and browsers
 8. PostgreSQL database
 9. Secure and verified website
+
+Use this link to create your own account and to never lose a fight again: https://www.dudap.xyz/
